@@ -25,6 +25,12 @@ class Line(NamedTuple):
         return tag("line", x1=self.start.x, y1=self.start.y, x2=self.end.x, y2=self.end.y, **attributes)
 
 
+class Polyline(tuple[Point, ...]):
+    def draw(self, **attributes) -> str:
+        points = " ".join(point.draw() for point in self)
+        return tag("polyline", points=points, **attributes)
+
+
 def tag(name: str, value: str | None = None, **attributes) -> str:
     attrs = (
         ""
