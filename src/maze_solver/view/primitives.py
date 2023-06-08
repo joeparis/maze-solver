@@ -31,6 +31,12 @@ class Polyline(tuple[Point, ...]):
         return tag("polyline", points=points, **attributes)
 
 
+class Polygon(tuple[Point, ...]):
+    def draw(self, **attributes) -> str:
+        points = " ".join(point.draw() for point in self)
+        return tag("polygon", points=points, **attributes)
+
+
 def tag(name: str, value: str | None = None, **attributes) -> str:
     attrs = (
         ""
