@@ -37,7 +37,7 @@ class Maze:
 
     @cached_property
     def exit(self) -> Square:
-        return next(square for square in self if square.role is Role.Exit)
+        return next(square for square in self if square.role is Role.EXIT)
 
 
 def validate_indices(maze: Maze) -> None:
