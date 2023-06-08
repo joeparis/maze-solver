@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 from dataclasses import dataclass
 from functools import cached_property
 from typing import Iterator
